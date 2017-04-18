@@ -124,6 +124,10 @@ class WriteiniFile
      */
     private static function encode($value)
     {
+        if (is_bool($value)) {
+            if($value) return 'true';
+            else return 'false';
+        }
         if ($value == '1' || $value === true) {
             return 1;
         } elseif ($value == '0' || $value === false) {
